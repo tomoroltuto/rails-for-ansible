@@ -27,3 +27,6 @@ test:
 production:
   <<: *default
   database: rails_todo_tutorial_production
+  username: <%= ENV['RAILS_TODO_TUTORIAL_DATABASE_USERNAME']
+  password: <%= ENV['RAILS_TODO_TUTORIAL_DATABASE_PASSWORD'] 
+  host: <%= ENV['RAILS_TODO_TUTORIAL_DATABASE_HOST'] 
