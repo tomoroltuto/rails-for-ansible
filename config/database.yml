@@ -7,16 +7,19 @@
 default: &default
   adapter: mysql2
   encoding: utf8mb4
-  pool: 5
-  timeout: 5000
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") {5} %>
   username: root
-  password: tomo
+  password: 
   socket: /var/lib/mysql/mysql.sock
+  prot: 3306
 
 development:
   <<: *default
   database: rails_todo_tutorial_development
-
+  username: admin
+  password: tomo5525
+  host: segawa-rds-1.c3nwd87igv8d.ap-northeast-1.rds.amazonaws.com
+  
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
@@ -27,6 +30,6 @@ test:
 production:
   <<: *default
   database: rails_todo_tutorial_production
-  username: <%= ENV['RAILS_TODO_TUTORIAL_DATABASE_USERNAME']
-  password: <%= ENV['RAILS_TODO_TUTORIAL_DATABASE_PASSWORD'] 
-  host: <%= ENV['RAILS_TODO_TUTORIAL_DATABASE_HOST'] 
+  username: <%= ENV['RAILS_TODO_TUTORIAL_DATABASE_USERNAME'] %>
+  password: <%= ENV['RAILS_TODO_TUTORIAL_DATABASE_PASSWORD'] %>
+  host: <%= ENV['RAILS_TODO_TUTORIAL_DATABASE_HOST'] %>
