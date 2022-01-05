@@ -3,11 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'rails',      '6.0.3'
 gem 'puma',       '4.3.6'
-gem 'sass-rails', '5.1.0'
+gem 'sass-rails'
 gem 'webpacker',  '4.0.7'
 gem 'turbolinks', '5.2.0'
 gem 'jbuilder',   '2.9.1'
 gem 'bootsnap',   '1.4.5', require: false
+gem "unicorn"
 
 group :development, :test do
   gem 'mysql2'
@@ -27,7 +28,17 @@ group :test do
   gem 'webdrivers',         '4.1.2'
 end
 
+group :production do
+  gem 'binding_of_caller'
+  gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'annotate'
+  gem 'devise'
+
+end
+
 # Windows ではタイムゾーン情報用の tzinfo-data gem を含める必要があります
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'omniauth-twitter'
+
