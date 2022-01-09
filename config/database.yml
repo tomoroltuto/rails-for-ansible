@@ -17,8 +17,8 @@ development:
   <<: *default
   database: rails_todo_tutorial_development
   username: admin
-  password: tomo5525
-  host: segawa-rds-1.c3nwd87igv8d.ap-northeast-1.rds.amazonaws.com
+  password: adminadmin
+  host: mydb-ansible.c3nwd87igv8d.ap-northeast-1.rds.amazonaws.com
   
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -30,6 +30,6 @@ test:
 production:
   <<: *default
   database: rails_todo_tutorial_production
-  username: <%= ENV['RAILS_TODO_TUTORIAL_DATABASE_USERNAME'] %>
-  password: <%= ENV['RAILS_TODO_TUTORIAL_DATABASE_PASSWORD'] %>
-  host: <%= ENV['RAILS_TODO_TUTORIAL_DATABASE_HOST'] %>
+  username: <%= ENV['ANSIBLE_RAILS_USERNAME'] %>
+  password: <%= ENV['ANSIBLE_RAILS_DATABASE_PASSWORD'] %>
+  host: <%= ENV['ANSIBLE_RAILS_DATABASE_HOST'] %>
